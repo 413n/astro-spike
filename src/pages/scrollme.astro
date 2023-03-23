@@ -7,14 +7,18 @@ import { SimpleText } from "../components/SimpleText";
 export const prerender = true;
 ---
 
-<Layout title="Load the component client side">
+<Layout title="Load the component on scroll">
   <main class="flex flex-col gap-8">
-    <div class="flex flex-col gap-2 w-min">
-      <CounterDisplay client:load />
-      <CounterController client:load />
-      <SimpleText client:load />
+    <div class="h-[100vh] flex place-content-center items-center">
+      Scroll me
     </div>
 
-    <a href="/static">Go to static page</a>
+    <div class="flex flex-col gap-2 w-min">
+      <CounterDisplay client:visible />
+      <CounterController client:visible />
+      <SimpleText client:visible />
+    </div>
+
+    <a href="/ssr">Go to SSR</a>
   </main>
 </Layout>

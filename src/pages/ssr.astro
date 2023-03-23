@@ -1,0 +1,29 @@
+---
+import Layout from "../components/Layout.astro";
+import { CounterDisplay } from "../components/CounterDisplay";
+import { CounterController } from "../components/CounterController";
+import { SimpleText } from "../components/SimpleText";
+
+let counter = 0;
+
+if (Astro.cookies.has("counter")) {
+  const cookie = Astro.cookies.get("counter");
+  counter = cookie.number() + 1;
+}
+
+Astro.cookies.set("counter", counter.toString());
+---
+
+<Layout title="Render the component server side">
+  <main class="flex flex-col gap-8">
+    <p>Cookies counter: {counter}</p>
+
+    <div class="flex flex-col gap-2 w-min">
+      <CounterDisplay client:load />
+      <CounterController client:load />
+      <SimpleText client:load />
+    </div>
+
+    <a href="/">Go to index page</a>
+  </main>
+</Layout>

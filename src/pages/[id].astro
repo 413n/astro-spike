@@ -1,0 +1,20 @@
+---
+const { id } = Astro.params;
+---
+
+<p>Received a {Astro.request.method} request to "{Astro.request.url}".</p>
+<p>
+  Received request headers: <code
+    >{JSON.stringify(Object.fromEntries(Astro.request.headers))}</code
+  >
+</p>
+
+<h1>ID: {id}</h1>
+
+<h1>The current URL is: {Astro.url}</h1>
+<h1>The current URL pathname is: {Astro.url.pathname}</h1>
+<h1>The current URL origin is: {Astro.url.origin}</h1>
+
+<div>
+  Your IP address is: <span class="address">{Astro.clientAddress}</span>
+</div>

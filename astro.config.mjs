@@ -1,8 +1,14 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+import { defineConfig } from "astro/config";
+import node from "@astrojs/node";
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
-	// Enable React to support React JSX components.
-	integrations: [react()],
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
+  integrations: [tailwind(), react(), solidJs()],
 });

@@ -7,14 +7,14 @@ import { SimpleText } from "../components/SimpleText";
 export const prerender = true;
 ---
 
-<Layout title="Load the component client side">
+<Layout title="This page is static">
   <main class="flex flex-col gap-8">
     <div class="flex flex-col gap-2 w-min">
-      <CounterDisplay client:load />
-      <CounterController client:load />
-      <SimpleText client:load />
+      <CounterDisplay />
+      <CounterController />
+      <SimpleText />
     </div>
 
-    <a href="/static">Go to static page</a>
+    <a href="/scrollme">Go to scrollme page</a>
   </main>
 </Layout>
